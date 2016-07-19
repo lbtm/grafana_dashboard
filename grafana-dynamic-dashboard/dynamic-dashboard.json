@@ -3,7 +3,7 @@
     {
       "name": "DS_TELEGRAF",
       "label": "telegraf",
-      "description": "Telegraf host metrics.",
+      "description": "",
       "type": "datasource",
       "pluginId": "influxdb",
       "pluginName": "InfluxDB"
@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0-beta1"
+      "version": "3.1.0"
     },
     {
       "type": "datasource",
@@ -99,7 +99,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 1,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -212,7 +212,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 1,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -275,6 +275,234 @@
             }
           ],
           "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "datasource": "${DS_TELEGRAF}",
+          "decimals": null,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 5,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 5,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 1,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "processes",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "total"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$server$/"
+                }
+              ]
+            }
+          ],
+          "thresholds": "",
+          "title": "all processes",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "rgba(50, 172, 45, 0.97)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(245, 54, 54, 0.9)"
+          ],
+          "datasource": "${DS_TELEGRAF}",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "format": "none",
+          "gauge": {
+            "maxValue": 5,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 7,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": true
+          },
+          "targets": [
+            {
+              "dsType": "influxdb",
+              "groupBy": [
+                {
+                  "params": [
+                    "$interval"
+                  ],
+                  "type": "time"
+                },
+                {
+                  "params": [
+                    "null"
+                  ],
+                  "type": "fill"
+                }
+              ],
+              "measurement": "system",
+              "policy": "default",
+              "refId": "A",
+              "resultFormat": "time_series",
+              "select": [
+                [
+                  {
+                    "params": [
+                      "load5"
+                    ],
+                    "type": "field"
+                  },
+                  {
+                    "params": [],
+                    "type": "mean"
+                  }
+                ]
+              ],
+              "tags": [
+                {
+                  "key": "host",
+                  "operator": "=~",
+                  "value": "/^$server$/"
+                }
+              ]
+            }
+          ],
+          "thresholds": "5,15",
+          "title": "load 5",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "current"
         },
         {
           "cacheTimeout": null,
@@ -389,120 +617,6 @@
             }
           ],
           "valueName": "current"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": false,
-          "colorValue": false,
-          "colors": [
-            "rgba(245, 54, 54, 0.9)",
-            "rgba(237, 129, 40, 0.89)",
-            "rgba(50, 172, 45, 0.97)"
-          ],
-          "datasource": "${DS_TELEGRAF}",
-          "decimals": null,
-          "editable": true,
-          "error": false,
-          "format": "none",
-          "gauge": {
-            "maxValue": 5,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "id": 5,
-          "interval": null,
-          "isNew": true,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "span": 2,
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "targets": [
-            {
-              "dsType": "influxdb",
-              "groupBy": [
-                {
-                  "params": [
-                    "$interval"
-                  ],
-                  "type": "time"
-                },
-                {
-                  "params": [
-                    "null"
-                  ],
-                  "type": "fill"
-                }
-              ],
-              "measurement": "processes",
-              "policy": "default",
-              "refId": "A",
-              "resultFormat": "time_series",
-              "select": [
-                [
-                  {
-                    "params": [
-                      "total"
-                    ],
-                    "type": "field"
-                  },
-                  {
-                    "params": [],
-                    "type": "mean"
-                  }
-                ]
-              ],
-              "tags": [
-                {
-                  "key": "host",
-                  "operator": "=~",
-                  "value": "/^$server$/"
-                }
-              ]
-            }
-          ],
-          "thresholds": "",
-          "title": "all processes",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "N/A",
-              "value": "null"
-            }
-          ],
-          "valueName": "avg"
         },
         {
           "cacheTimeout": null,
@@ -628,18 +742,19 @@
             "rgba(245, 54, 54, 0.9)"
           ],
           "datasource": "${DS_TELEGRAF}",
-          "decimals": 2,
+          "decimals": null,
           "editable": true,
           "error": false,
           "format": "none",
           "gauge": {
-            "maxValue": 5,
-            "minValue": 0,
-            "show": false,
+            "maxValue": 100,
+            "minValue": 1,
+            "show": true,
             "thresholdLabels": false,
             "thresholdMarkers": true
           },
-          "id": 7,
+          "height": "",
+          "id": 26,
           "interval": null,
           "isNew": true,
           "links": [],
@@ -655,9 +770,10 @@
             }
           ],
           "maxDataPoints": 100,
+          "minSpan": null,
           "nullPointMode": "connected",
           "nullText": null,
-          "postfix": "",
+          "postfix": "%",
           "postfixFontSize": "50%",
           "prefix": "",
           "prefixFontSize": "50%",
@@ -668,12 +784,20 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "repeat": "path",
+          "scopedVars": {
+            "path": {
+              "text": "/",
+              "value": "/",
+              "selected": true
+            }
+          },
+          "span": 6,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
             "lineColor": "rgb(31, 120, 193)",
-            "show": true
+            "show": false
           },
           "targets": [
             {
@@ -687,26 +811,34 @@
                 },
                 {
                   "params": [
-                    "null"
+                    "none"
                   ],
                   "type": "fill"
                 }
               ],
-              "measurement": "system",
+              "measurement": "disk",
               "policy": "default",
+              "query": "SELECT (mean(\"inodes_used\") * 100) / mean(\"inodes_total\") FROM \"disk\" WHERE \"host\" =~ /^$server$/ AND \"path\" =~ /^$path$/ AND $timeFilter GROUP BY time($interval) fill(null)",
+              "rawQuery": true,
               "refId": "A",
               "resultFormat": "time_series",
               "select": [
                 [
                   {
                     "params": [
-                      "load5"
+                      "inodes_total"
                     ],
                     "type": "field"
                   },
                   {
                     "params": [],
                     "type": "mean"
+                  },
+                  {
+                    "params": [
+                      " / 100"
+                    ],
+                    "type": "math"
                   }
                 ]
               ],
@@ -715,12 +847,18 @@
                   "key": "host",
                   "operator": "=~",
                   "value": "/^$server$/"
+                },
+                {
+                  "condition": "AND",
+                  "key": "path",
+                  "operator": "=~",
+                  "value": "/^$path$/"
                 }
               ]
             }
           ],
-          "thresholds": "5,15",
-          "title": "load 5",
+          "thresholds": "75,90",
+          "title": "inode   $path",
           "type": "singlestat",
           "valueFontSize": "80%",
           "valueMaps": [
@@ -892,7 +1030,7 @@
             "threshold2": null,
             "threshold2Color": "rgba(234, 112, 112, 0.22)"
           },
-          "id": 12,
+          "id": 27,
           "isNew": true,
           "legend": {
             "alignAsTable": false,
@@ -919,11 +1057,6 @@
               "text": "/",
               "value": "/",
               "selected": true
-            },
-            "server": {
-              "selected": true,
-              "text": "datamining50",
-              "value": "datamining50"
             }
           },
           "seriesOverrides": [],
@@ -943,7 +1076,7 @@
                 },
                 {
                   "params": [
-                    "null"
+                    "none"
                   ],
                   "type": "fill"
                 }
@@ -992,7 +1125,7 @@
                 },
                 {
                   "params": [
-                    "null"
+                    "none"
                   ],
                   "type": "fill"
                 }
@@ -1244,7 +1377,7 @@
           "timeShift": null,
           "title": "Load",
           "tooltip": {
-            "msResolution": false,
+            "msResolution": true,
             "ordering": "alphabetical",
             "shared": true,
             "sort": 0,
@@ -1445,7 +1578,7 @@
           "timeShift": null,
           "title": "CPU (%)",
           "tooltip": {
-            "msResolution": false,
+            "msResolution": true,
             "ordering": "alphabetical",
             "shared": true,
             "sort": 0,
@@ -2636,7 +2769,7 @@
                     "params": [
                       "10s"
                     ],
-                    "type": "derivative"
+                    "type": "non_negative_derivative"
                   }
                 ]
               ],
@@ -2686,7 +2819,7 @@
                     "params": [
                       "10s"
                     ],
-                    "type": "derivative"
+                    "type": "non_negative_derivative"
                   }
                 ]
               ],
@@ -2737,7 +2870,7 @@
     }
   ],
   "time": {
-    "from": "now-3h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -2783,7 +2916,8 @@
       {
         "current": {
           "text": "eth1",
-          "value": "eth1"
+          "value": "eth1",
+          "selected": true
         },
         "datasource": "telegraf",
         "hide": 0,
@@ -2837,8 +2971,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 63,
+  "version": 111,
   "links": [],
-  "gnetId": 79,
-  "description": "InfluxDB dashboards for telegraf metrics."
+  "gnetId": null
 }
