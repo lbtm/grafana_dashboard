@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_ELK",
-      "label": "elk",
+      "name": "DS_FILEBEAT-FRONT",
+      "label": "filebeat-front",
       "description": "",
       "type": "datasource",
       "pluginId": "elasticsearch",
@@ -26,7 +26,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "3.1.0-beta1"
+      "version": "3.1.0"
     },
     {
       "type": "datasource",
@@ -39,7 +39,7 @@
   "title": "Front HTTP",
   "tags": [
     "http",
-    "front"
+    "lgfront"
   ],
   "style": "dark",
   "timezone": "browser",
@@ -57,7 +57,7 @@
             "410": "#511749"
           },
           "bars": true,
-          "datasource": "${DS_ELK}",
+          "datasource": "${DS_FILEBEAT-FRONT}",
           "editable": true,
           "error": false,
           "fill": 0,
@@ -201,7 +201,7 @@
             "410": "#511749"
           },
           "bars": false,
-          "datasource": "${DS_ELK}",
+          "datasource": "${DS_FILEBEAT-FRONT}",
           "editable": true,
           "error": false,
           "fill": 0,
@@ -351,7 +351,7 @@
         {
           "aliasColors": {},
           "cacheTimeout": null,
-          "datasource": "${DS_ELK}",
+          "datasource": "${DS_FILEBEAT-FRONT}",
           "editable": true,
           "error": false,
           "fontSize": "80%",
@@ -448,7 +448,7 @@
         {
           "aliasColors": {},
           "cacheTimeout": null,
-          "datasource": "${DS_ELK}",
+          "datasource": "${DS_FILEBEAT-FRONT}",
           "editable": true,
           "error": false,
           "fontSize": "80%",
@@ -545,7 +545,7 @@
         {
           "aliasColors": {},
           "cacheTimeout": null,
-          "datasource": "${DS_ELK}",
+          "datasource": "${DS_FILEBEAT-FRONT}",
           "editable": true,
           "error": false,
           "fontSize": "80%",
@@ -642,7 +642,7 @@
         {
           "aliasColors": {},
           "cacheTimeout": null,
-          "datasource": "${DS_ELK}",
+          "datasource": "${DS_FILEBEAT-FRONT}",
           "editable": true,
           "error": false,
           "fontSize": "80%",
@@ -777,8 +777,7 @@
   },
   "refresh": false,
   "schemaVersion": 12,
-  "version": 32,
+  "version": 34,
   "links": [],
-  "gnetId": 73,
-  "description": "Simple HTTP logs  Dashboard using Elasticsearch Stack.\r\n"
+  "gnetId": null
 }
